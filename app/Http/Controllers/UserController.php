@@ -72,4 +72,22 @@ class UserController extends Controller
         }
 
     }
+    //个人中心
+    public function center(){
+        $uid=$_GET['uid']??'';
+        if($uid) {
+            $data = DB::table('user')->where('id', $uid)->first();
+            $response = [
+                'errno' => '0',
+                'data' => $data
+            ];
+            return json_encode($response,JSON_UNESCAPED_UNICODE);
+        }else {
+            $response = [
+                'errno' => '20001',
+                'msg' => '请登录'
+            ];
+            return json_encode($response,JSON_UNESCAPED_UNICODE);
+        }
+    }
 }

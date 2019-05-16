@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::post('/user/reg','UserController@reg');
 //用户登录
 Route::post('/user/login','UserController@login');
+//个人中心
+Route::get('/user/center','UserController@center');
